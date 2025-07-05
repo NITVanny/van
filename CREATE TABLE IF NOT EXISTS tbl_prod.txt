@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS tbl_product (
+    id SERIAL PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    prices DECIMAL(10,2) NOT NULL,
+	image VARCHAR(255),
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Ensure the user has the necessary privileges
+GRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;
+GRANT USAGE, CREATE ON SCHEMA public TO myuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO myuser;
